@@ -45,45 +45,46 @@ html, body {
     position: relative;
 }
 
-/* Top Section (Split screen 50vh) */
+/* Top Section (50vh, spans full width for background photo) */
 .top-section {
     height: 50vh;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid var(--color-charcoal);
     position: relative;
+    border-bottom: 1px solid var(--color-charcoal);
 }
 
 /* Bottom Section (Light substrate 50vh) */
 .bottom-section {
     height: 50vh;
     display: grid;
-    grid-template-columns: 28% 72%; /* 28% matches the black-bar width for grid consistency */
+    grid-template-columns: 28% 72%; /* Vertical grid alignment across sections */
     background-color: var(--color-almost-white);
     color: var(--color-black);
+    position: relative;
 }
 
 /* ==========================================================================
    TOP HALF ELEMENTS
    ========================================================================== */
 
-/* Black bar on the left (shorter & closer to the border) */
+/* Shorter Black Bar, floating on the left, closer to left border (Swiss Minimalist) */
 .black-bar {
-    width: 28%; /* Narrower than 50% for a cleaner, asymmetrical aesthetic */
-    height: 100%;
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: calc(28% - 48px); /* Perfectly centered in the 28% column space with 24px margin */
     background-color: var(--color-black);
     color: var(--color-almost-white);
-    padding: 30px 24px;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1px solid var(--color-charcoal);
-    position: relative;
-    z-index: 5;
+    border: 1px solid var(--color-charcoal);
+    z-index: 15;
 }
 
 .black-bar h1 {
-    font-size: clamp(1.8rem, 2.5vw, 3.2rem);
+    font-size: clamp(1.4rem, 2.2vw, 2.8rem);
     font-weight: 700;
     line-height: 0.95;
     letter-spacing: -0.05em;
@@ -93,19 +94,19 @@ html, body {
 .black-bar .bar-footer {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 .meta-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--color-medium-gray);
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
 
-/* Gallery Container (Main architectural view + thumbnail strip) */
+/* Gallery Container (Spans full top width, image sits behind black bar) */
 .gallery-container {
-    width: 72%;
+    width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -114,8 +115,8 @@ html, body {
 
 .imagery-label {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 24px;
+    left: calc(28% - 10px); /* Positioned right after the floating black bar margin */
     font-size: 0.75rem;
     color: var(--color-light-gray);
     letter-spacing: 0.15em;
@@ -135,7 +136,7 @@ html, body {
     object-fit: cover;
     object-position: center;
     filter: grayscale(100%);
-    transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-container:hover .main-image-wrapper img {
@@ -175,7 +176,7 @@ html, body {
     transition: filter 0.3s, transform 0.3s;
 }
 
-/* Special crop rules to make 3 files look like 5 distinct thumbnails */
+/* Special crops to diversify the 3 building files */
 .position-crop-1 img {
     object-position: top right;
 }
@@ -215,7 +216,7 @@ html, body {
 
 .block-logo {
     width: 100%;
-    max-width: 150px;
+    max-width: 160px; /* Aligns with 240px wide viewBox */
     height: auto;
     fill: var(--color-black);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -228,7 +229,7 @@ html, body {
 /* Typography contents */
 .content-container {
     height: 100%;
-    padding: 30px 40px;
+    padding: 30px 40px 100px 40px; /* Generous 100px bottom padding protects from footer overlaps */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -250,11 +251,10 @@ html, body {
 
 .description-wrapper {
     max-width: 60%;
-    margin-bottom: 20px;
 }
 
 .description-text {
-    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
     color: var(--color-charcoal);
     line-height: 1.4;
     letter-spacing: 0.05em;
@@ -270,33 +270,41 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px 24px;
+    height: 90px;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    pointer-events: none; /* Let clicks pass to background elements */
+    align-items: center;
+    pointer-events: none; /* Allows pointer clicks to pass through background details */
     z-index: 100;
 }
 
+/* Low-contrast, viewport-bleeding backdrop text */
 .thanks-label {
+    position: absolute;
+    bottom: 12px;
+    left: 24px;
     font-size: clamp(1.2rem, 3.5vw, 4.5rem);
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.07); /* Low-contrast large label behind the button */
+    color: rgba(0, 0, 0, 0.06);
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1;
     pointer-events: none;
     user-select: none;
+    z-index: 1;
 }
 
-/* Action button: rounded capsule button matching reference */
+/* Capsule button on the bottom left (matches reference) */
 .action-btn {
-    pointer-events: auto; /* Re-enable pointer events */
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
     background-color: #FFFFFF;
     color: var(--color-black);
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 20px; /* Slight pill radius */
+    padding: 10px 22px;
+    border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 700;
     border: 1px solid var(--color-light-gray);
@@ -322,11 +330,37 @@ html, body {
 
 .action-btn:hover .btn-arrow {
     transform: translate(2px, -2px);
-    color: var(--color-ocre); /* Warm accent detail highlight on hover */
+    color: var(--color-ocre); /* Highlight arrow with Ocre */
+}
+
+/* Circular button on the bottom right (matches reference) */
+.circle-btn {
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    color: var(--color-black);
+    border: 1px solid var(--color-light-gray);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s, box-shadow 0.2s;
+}
+
+.circle-btn:hover {
+    background-color: var(--color-almost-white);
+    transform: rotate(180deg) scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    color: var(--color-ocre);
 }
 
 /* ==========================================================================
-   RESPONSIVENESS (Adapt for smaller screens)
+   RESPONSIVENESS
    ========================================================================== */
 
 @media (max-width: 900px) {
@@ -341,19 +375,25 @@ html, body {
     .top-section {
         height: auto;
         min-height: 50vh;
-        flex-direction: column;
     }
     
     .black-bar {
+        position: relative;
+        left: 0;
+        top: 0;
+        bottom: 0;
         width: 100%;
         height: auto;
         padding: 40px 24px;
-        border-right: none;
+        border: none;
         border-bottom: 1px solid var(--color-charcoal);
     }
     
+    .imagery-label {
+        left: 20px;
+    }
+    
     .gallery-container {
-        width: 100%;
         height: 50vh;
     }
     
@@ -395,6 +435,7 @@ html, body {
     
     .global-footer {
         position: relative;
+        height: auto;
         padding: 20px 24px 40px 24px;
         flex-direction: column;
         align-items: flex-start;
@@ -404,6 +445,9 @@ html, body {
     }
     
     .thanks-label {
+        position: relative;
+        bottom: 0;
+        left: 0;
         font-size: 2.5rem;
     }
 }
