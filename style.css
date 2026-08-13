@@ -13,6 +13,7 @@
     
     /* Font families */
     --font-mono: 'Space Mono', 'Courier New', Courier, monospace;
+    --font-futura: 'Futura PT', 'Futura', 'League Spartan', 'Montserrat', sans-serif;
 }
 
 /* Base resets */
@@ -92,6 +93,7 @@ html, body {
 }
 
 .black-bar h1 {
+    font-family: var(--font-futura);
     font-size: clamp(1.4rem, 2.2vw, 2.8rem);
     font-weight: 700;
     line-height: 0.95;
@@ -230,6 +232,7 @@ html, body {
 }
 
 .brand-huge {
+    font-family: var(--font-futura);
     font-size: clamp(5rem, 13vw, 14rem);
     font-weight: 700;
     line-height: 0.75;
@@ -281,6 +284,7 @@ html, body {
 }
 
 .narrative-content h2 {
+    font-family: var(--font-futura);
     font-size: clamp(1.4rem, 2.5vw, 2.5rem);
     font-weight: 700;
     line-height: 1.2;
@@ -425,6 +429,7 @@ html, body {
 }
 
 .metric-value {
+    font-family: var(--font-futura);
     font-size: clamp(2rem, 3.5vw, 3.5rem);
     font-weight: 700;
     color: var(--color-black);
