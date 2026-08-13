@@ -1,0 +1,409 @@
+/* ==========================================================================
+   DESIGN SYSTEM & VARIABLES (Swiss Style & Editorial Brutalism)
+   ========================================================================== */
+
+:root {
+    /* Palette requested by the user */
+    --color-black: #000000;
+    --color-charcoal: #4F4E4B;
+    --color-medium-gray: #7A7A77;
+    --color-light-gray: #D8D8D8;
+    --color-almost-white: #E7E8E7;
+    --color-ocre: #DDBB73;
+    
+    /* Font families */
+    --font-mono: 'Space Mono', 'Courier New', Courier, monospace;
+}
+
+/* Base resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-black);
+    color: var(--color-almost-white);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: hidden; /* Fixed viewport presentation style */
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURE
+   ========================================================================== */
+
+.viewport-grid {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Top Section (Split screen 50vh) */
+.top-section {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--color-charcoal);
+    position: relative;
+}
+
+/* Bottom Section (Light substrate 50vh) */
+.bottom-section {
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 28% 72%; /* 28% matches the black-bar width for grid consistency */
+    background-color: var(--color-almost-white);
+    color: var(--color-black);
+}
+
+/* ==========================================================================
+   TOP HALF ELEMENTS
+   ========================================================================== */
+
+/* Black bar on the left (shorter & closer to the border) */
+.black-bar {
+    width: 28%; /* Narrower than 50% for a cleaner, asymmetrical aesthetic */
+    height: 100%;
+    background-color: var(--color-black);
+    color: var(--color-almost-white);
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--color-charcoal);
+    position: relative;
+    z-index: 5;
+}
+
+.black-bar h1 {
+    font-size: clamp(1.8rem, 2.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.black-bar .bar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    color: var(--color-medium-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Gallery Container (Main architectural view + thumbnail strip) */
+.gallery-container {
+    width: 72%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.imagery-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 0.75rem;
+    color: var(--color-light-gray);
+    letter-spacing: 0.15em;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+/* Main Image Wrapper */
+.main-image-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.main-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-container:hover .main-image-wrapper img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* Thumbnail strip overlaying the bottom right */
+.thumbnail-strip {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 55%; /* Spans 55% of the gallery width */
+    height: 72px;
+    background-color: var(--color-black);
+    gap: 1px;
+    border-top: 1px solid var(--color-charcoal);
+    border-left: 1px solid var(--color-charcoal);
+    z-index: 12;
+}
+
+.thumb-box {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: var(--color-black);
+    transition: background 0.3s;
+}
+
+.thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(70%);
+    transition: filter 0.3s, transform 0.3s;
+}
+
+/* Special crop rules to make 3 files look like 5 distinct thumbnails */
+.position-crop-1 img {
+    object-position: top right;
+}
+
+.position-crop-2 img {
+    object-position: bottom left;
+}
+
+.thumb-box:hover img {
+    filter: grayscale(0%) brightness(100%);
+    transform: scale(1.05);
+}
+
+/* Active thumbnail state with Ocre/Amber highlight */
+.thumb-box.active {
+    outline: 2px solid var(--color-ocre);
+    outline-offset: -2px;
+}
+
+.thumb-box.active img {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* ==========================================================================
+   BOTTOM HALF ELEMENTS (Substrate)
+   ========================================================================== */
+
+/* Logo area aligned with the left black bar */
+.logo-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-light-gray);
+    padding: 40px;
+}
+
+.block-logo {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    fill: var(--color-black);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-container:hover .block-logo {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* Typography contents */
+.content-container {
+    height: 100%;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-huge-wrapper {
+    width: 100%;
+}
+
+.brand-huge {
+    font-size: clamp(5rem, 13vw, 14rem);
+    font-weight: 700;
+    line-height: 0.75;
+    letter-spacing: -0.06em;
+    color: var(--color-black);
+    text-transform: uppercase;
+    margin-top: -10px;
+}
+
+.description-wrapper {
+    max-width: 60%;
+    margin-bottom: 20px;
+}
+
+.description-text {
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    color: var(--color-charcoal);
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   FOOTER & ACTION BUTTONS
+   ========================================================================== */
+
+.global-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none; /* Let clicks pass to background elements */
+    z-index: 100;
+}
+
+.thanks-label {
+    font-size: clamp(1.2rem, 3.5vw, 4.5rem);
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.07); /* Low-contrast large label behind the button */
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Action button: rounded capsule button matching reference */
+.action-btn {
+    pointer-events: auto; /* Re-enable pointer events */
+    background-color: #FFFFFF;
+    color: var(--color-black);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px; /* Slight pill radius */
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid var(--color-light-gray);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+}
+
+.action-btn .btn-arrow {
+    font-size: 1rem;
+    color: var(--color-charcoal);
+    transition: transform 0.2s, color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: var(--color-almost-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.action-btn:hover .btn-arrow {
+    transform: translate(2px, -2px);
+    color: var(--color-ocre); /* Warm accent detail highlight on hover */
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Adapt for smaller screens)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    html, body {
+        overflow: auto;
+    }
+    
+    .viewport-grid {
+        height: auto;
+    }
+    
+    .top-section {
+        height: auto;
+        min-height: 50vh;
+        flex-direction: column;
+    }
+    
+    .black-bar {
+        width: 100%;
+        height: auto;
+        padding: 40px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--color-charcoal);
+    }
+    
+    .gallery-container {
+        width: 100%;
+        height: 50vh;
+    }
+    
+    .thumbnail-strip {
+        width: 100%;
+        height: 60px;
+    }
+    
+    .bottom-section {
+        height: auto;
+        grid-template-columns: 100%;
+        padding-bottom: 100px;
+    }
+    
+    .logo-container {
+        height: auto;
+        padding: 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--color-light-gray);
+    }
+    
+    .block-logo {
+        max-width: 80px;
+    }
+    
+    .content-container {
+        height: auto;
+        padding: 40px 24px;
+        gap: 30px;
+    }
+    
+    .brand-huge {
+        font-size: 5rem;
+    }
+    
+    .description-wrapper {
+        max-width: 100%;
+    }
+    
+    .global-footer {
+        position: relative;
+        padding: 20px 24px 40px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        background-color: var(--color-almost-white);
+        border-top: 1px solid var(--color-light-gray);
+    }
+    
+    .thanks-label {
+        font-size: 2.5rem;
+    }
+}

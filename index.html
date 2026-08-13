@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourProject By Ergo</title>
+    <!-- Technical & digital font style (Space Mono) with straight terminals & geometric proportions -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="viewport-grid">
+        <!-- TOP SECTION: SPLIT PANEL -->
+        <section class="top-section">
+            <!-- Left Side: Short Black Bar, Narrow & close to left edge -->
+            <div class="black-bar">
+                <div class="bar-header">
+                    <h1>YOURPROJECT<br>BY ERGO</h1>
+                </div>
+                <div class="bar-footer">
+                    <span class="meta-label">ARCHITECTURE / STUDIO</span>
+                    <span class="meta-label">PHASE: CONCEPT</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Large Architectural Image + Thumbnails -->
+            <div class="gallery-container">
+                <div class="imagery-label">IMAGERY</div>
+                
+                <!-- Main Image Display -->
+                <div class="main-image-wrapper">
+                    <img id="main-building-img" src="assets/predio_um.jpg" alt="Estrutura de Concreto Contemporânea">
+                </div>
+
+                <!-- Thumbnail Grid (5 thumbnails generated from the 3 building images) -->
+                <div class="thumbnail-strip">
+                    <div class="thumb-box active" data-index="0" data-src="assets/predio_um.jpg">
+                        <img src="assets/predio_um.jpg" alt="Miniatura 1">
+                    </div>
+                    <div class="thumb-box" data-index="1" data-src="assets/predio_2.jpg">
+                        <img src="assets/predio_2.jpg" alt="Miniatura 2">
+                    </div>
+                    <div class="thumb-box" data-index="2" data-src="assets/predio_3.jpg">
+                        <img src="assets/predio_3.jpg" alt="Miniatura 3">
+                    </div>
+                    <div class="thumb-box position-crop-1" data-index="3" data-src="assets/predio_um.jpg">
+                        <img src="assets/predio_um.jpg" alt="Miniatura 4 (Detalhe)">
+                    </div>
+                    <div class="thumb-box position-crop-2" data-index="4" data-src="assets/predio_2.jpg">
+                        <img src="assets/predio_2.jpg" alt="Miniatura 5 (Detalhe)">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM SECTION: LIGHT GRAY SUBSTRATE WITH LOGO AND TYPOGRAPHY -->
+        <section class="bottom-section">
+            <!-- Left Side: Geometric Logo aligned with the black bar -->
+            <div class="logo-container">
+                <!-- SVG rendering the exact geometric blocky logo from reference -->
+                <svg class="block-logo" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Row 2 (bottom): Square on Col 1 -->
+                    <rect x="0" y="80" width="40" height="40" />
+                    <!-- Row 1 (middle): Col 2, Col 3, Col 4, Col 5 -->
+                    <rect x="40" y="40" width="40" height="40" />
+                    <rect x="80" y="40" width="40" height="40" />
+                    <rect x="120" y="40" width="40" height="40" />
+                    <rect x="160" y="40" width="40" height="40" />
+                    <!-- Row 0 (top): Col 3, Col 4 -->
+                    <rect x="80" y="0" width="40" height="40" />
+                    <rect x="120" y="0" width="40" height="40" />
+                </svg>
+            </div>
+
+            <!-- Right Side: Huge text and description -->
+            <div class="content-container">
+                <div class="brand-huge-wrapper">
+                    <h2 class="brand-huge">ERGO</h2>
+                </div>
+                
+                <div class="description-wrapper">
+                    <p class="description-text">
+                        WE DELIVER UNCOMPROMISING ARCHITECTURAL SOLUTIONS GUIDED BY SWISS FUNCTIONALISM, RIGID STRUCTURAL GRID PATTERNS, AND THE HONEST UTILITY OF RAW CONCRETE.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER & ACTION BUTTONS -->
+        <footer class="global-footer">
+            <div class="thanks-label">THANKS FOR WATCHING</div>
+            
+            <!-- White rounded action button replicating the reference -->
+            <a href="#" class="action-btn" id="explore-btn">
+                <span class="btn-arrow">↗</span> Acessar o site
+            </a>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
