@@ -12,86 +12,178 @@
 </head>
 <body>
     <main class="viewport-grid">
-        <!-- TOP SECTION: SPLIT PANEL -->
-        <section class="top-section">
-            <!-- Left Side: Short Black Bar, Floating & close to left edge -->
-            <div class="black-bar">
-                <div class="bar-header">
-                    <h1>YOURPROJECT<br>BY ERGO</h1>
-                </div>
-                <div class="bar-footer">
-                    <span class="meta-label">ARCHITECTURE / STUDIO</span>
-                    <span class="meta-label">PHASE: CONCEPT</span>
-                </div>
-            </div>
-
-            <!-- Right Side: Large Architectural Image + Thumbnails -->
-            <div class="gallery-container">
-                <div class="imagery-label">IMAGERY</div>
-                
-                <!-- Main Image Display -->
-                <div class="main-image-wrapper">
-                    <img id="main-building-img" src="assets/predio_um.jpg" alt="Estrutura de Concreto Contemporânea">
-                </div>
-
-                <!-- Thumbnail Grid (5 thumbnails generated from the 3 building images) -->
-                <div class="thumbnail-strip">
-                    <div class="thumb-box active" data-index="0" data-src="assets/predio_um.jpg">
-                        <img src="assets/predio_um.jpg" alt="Miniatura 1">
+        <!-- SECTION 1: HERO VIEW (100vh total) -->
+        <div class="hero-view">
+            <!-- TOP HALVES (50vh) -->
+            <section class="top-section">
+                <!-- Left Side: Black Sidebar, connected to bottom border and screen borders -->
+                <div class="black-bar">
+                    <div class="bar-header">
+                        <h1>YOURPROJECT<br>BY ERGO</h1>
                     </div>
-                    <div class="thumb-box" data-index="1" data-src="assets/predio_2.jpg">
-                        <img src="assets/predio_2.jpg" alt="Miniatura 2">
-                    </div>
-                    <div class="thumb-box" data-index="2" data-src="assets/predio_3.jpg">
-                        <img src="assets/predio_3.jpg" alt="Miniatura 3">
-                    </div>
-                    <div class="thumb-box position-crop-1" data-index="3" data-src="assets/predio_um.jpg">
-                        <img src="assets/predio_um.jpg" alt="Miniatura 4 (Detalhe)">
-                    </div>
-                    <div class="thumb-box position-crop-2" data-index="4" data-src="assets/predio_2.jpg">
-                        <img src="assets/predio_2.jpg" alt="Miniatura 5 (Detalhe)">
+                    <div class="bar-footer">
+                        <span class="meta-label">ARCHITECTURE / STUDIO</span>
+                        <span class="meta-label">PHASE: CONCEPT</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- BOTTOM SECTION: LIGHT GRAY SUBSTRATE WITH LOGO AND TYPOGRAPHY -->
-        <section class="bottom-section">
-            <!-- Left Side: Geometric Logo aligned with the black bar -->
-            <div class="logo-container">
-                <!-- SVG rendering the exact geometric blocky logo from reference, viewBox enlarged to prevent clipping -->
-                <svg class="block-logo" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Row 2 (bottom): Square on Col 1 -->
-                    <rect x="0" y="80" width="40" height="40" />
-                    <!-- Row 1 (middle): Col 2, Col 3, Col 4, Col 5 -->
-                    <rect x="40" y="40" width="40" height="40" />
-                    <rect x="80" y="40" width="40" height="40" />
-                    <rect x="120" y="40" width="40" height="40" />
-                    <rect x="160" y="40" width="40" height="40" />
-                    <!-- Row 0 (top): Col 3, Col 4 -->
-                    <rect x="80" y="0" width="40" height="40" />
-                    <rect x="120" y="0" width="40" height="40" />
-                </svg>
-            </div>
+                <!-- Right Side: Gallery (76% width) -->
+                <div class="gallery-container">
+                    <div class="imagery-label">IMAGERY</div>
+                    
+                    <!-- Main Image Display -->
+                    <div class="main-image-wrapper">
+                        <img id="main-building-img" src="assets/predio_um.jpg" alt="Estrutura de Concreto Contemporânea">
+                    </div>
 
-            <!-- Right Side: Huge text and description -->
-            <div class="content-container">
-                <div class="brand-huge-wrapper">
-                    <h2 class="brand-huge">ERGO</h2>
+                    <!-- Thumbnail Grid -->
+                    <div class="thumbnail-strip">
+                        <div class="thumb-box active" data-index="0" data-src="assets/predio_um.jpg">
+                            <img src="assets/predio_um.jpg" alt="Miniatura 1">
+                        </div>
+                        <div class="thumb-box" data-index="1" data-src="assets/predio_2.jpg">
+                            <img src="assets/predio_2.jpg" alt="Miniatura 2">
+                        </div>
+                        <div class="thumb-box" data-index="2" data-src="assets/predio_3.jpg">
+                            <img src="assets/predio_3.jpg" alt="Miniatura 3">
+                        </div>
+                        <div class="thumb-box position-crop-1" data-index="3" data-src="assets/predio_um.jpg">
+                            <img src="assets/predio_um.jpg" alt="Miniatura 4 (Detalhe)">
+                        </div>
+                        <div class="thumb-box position-crop-2" data-index="4" data-src="assets/predio_2.jpg">
+                            <img src="assets/predio_2.jpg" alt="Miniatura 5 (Detalhe)">
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="description-wrapper">
-                    <p class="description-text">
-                        WE DELIVER UNCOMPROMISING ARCHITECTURAL SOLUTIONS GUIDED BY SWISS FUNCTIONALISM, RIGID STRUCTURAL GRID PATTERNS, AND THE HONEST UTILITY OF RAW CONCRETE.
-                    </p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- FOOTER & ACTION BUTTONS -->
-        <footer class="global-footer">
-            <div class="thanks-label">THANKS FOR WATCHING</div>
+            <!-- BOTTOM HALVES (50vh) -->
+            <section class="bottom-section">
+                <!-- Left Side: Geometric Logo (viewBox enlarged, aligned with sidebar) -->
+                <div class="logo-container">
+                    <svg class="block-logo" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Row 2 (bottom): Square on Col 1 -->
+                        <rect x="0" y="80" width="40" height="40" />
+                        <!-- Row 1 (middle): Col 2, Col 3, Col 4, Col 5 -->
+                        <rect x="40" y="40" width="40" height="40" />
+                        <rect x="80" y="40" width="40" height="40" />
+                        <rect x="120" y="40" width="40" height="40" />
+                        <rect x="160" y="40" width="40" height="40" />
+                        <!-- Row 0 (top): Col 3, Col 4 -->
+                        <rect x="80" y="0" width="40" height="40" />
+                        <rect x="120" y="0" width="40" height="40" />
+                    </svg>
+                </div>
+
+                <!-- Right Side: Brand Name & Description -->
+                <div class="content-container">
+                    <div class="brand-huge-wrapper">
+                        <h2 class="brand-huge">ERGO</h2>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-text">
+                            WE DELIVER UNCOMPROMISING ARCHITECTURAL SOLUTIONS GUIDED BY SWISS FUNCTIONALISM, RIGID STRUCTURAL GRID PATTERNS, AND THE HONEST UTILITY OF RAW CONCRETE.
+                        </p>
+                    </div>
+                    
+                    <!-- Backdrop text that scrolls naturally -->
+                    <div class="thanks-label-backdrop">THANKS FOR WATCHING</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECTION 2: CINEMATIC PARALLAX VIEW (Replicates skiper29 effect using predio_2.jpg) -->
+        <section class="parallax-section">
+            <!-- Background Parallax Image -->
+            <div class="parallax-bg" style="background-image: url('assets/predio_2.jpg');"></div>
             
+            <div class="parallax-overlay"></div>
+
+            <!-- Parallax Telemetry & Description Cards -->
+            <div class="parallax-content">
+                <!-- Left Overlay Card -->
+                <div class="telemetry-card pt-left">
+                    <div class="card-num">YP.02</div>
+                    <h3 class="card-title">CONCRETE GRID</h3>
+                    <p class="card-text">
+                        THE RAW EXPOSURE OF LOAD-BEARING ELEMENTS ENHANCES THE GEOMETRIC RATIONALISM OF THE FAÇADE.
+                    </p>
+                    <div class="card-telemetry">
+                        <div>LOCATION // PT.Oporto</div>
+                        <div>MATERIAL // Reinforced Concrete</div>
+                        <div>GRID SPACING // 4.80m</div>
+                    </div>
+                </div>
+
+                <!-- Right Overlay Card -->
+                <div class="telemetry-card pt-right">
+                    <div class="card-num">YP.03</div>
+                    <h3 class="card-title">GEOMETRIC PROPORTION</h3>
+                    <p class="card-text">
+                        THE COGNITIVE REDUCTION OF FORM TO PURE MATHEMATICAL SCALES IN CORPORATE ENVIRONMENTS.
+                    </p>
+                    <div class="card-telemetry">
+                        <div>COORDINATES // 41.1579° N, 8.6291° W</div>
+                        <div>ACCENTS // Ocre Amber Props</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SERVICES GRID VIEW (Bento architecture layout using predio_3.jpg) -->
+        <section class="services-section">
+            <div class="services-grid">
+                <!-- Col 1: Vertical Building Shot (24vw width to maintain the vertical grid line) -->
+                <div class="services-image-col">
+                    <img src="assets/predio_3.jpg" alt="Detalhe do Prédio 3">
+                </div>
+
+                <!-- Col 2: Services List & Studio Info (76vw width) -->
+                <div class="services-content-col">
+                    <div class="services-header">
+                        <span class="meta-label">YP.SERVICES</span>
+                        <h2>ARCHITECTURAL WORKFLOW</h2>
+                    </div>
+
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span class="service-num">01 //</span>
+                            <div class="service-info">
+                                <h3>STRUCTURAL ANALYSIS</h3>
+                                <p>Mathematical assessment of structures, using exposed grids to define visual syntax.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <span class="service-num">02 //</span>
+                            <div class="service-info">
+                                <h3>SPATIAL PROGRAMMING</h3>
+                                <p>Minimalist space optimization based on mid-century Swiss functional layout grids.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <span class="service-num">03 //</span>
+                            <div class="service-info">
+                                <h3>DETAIL ARCHITECTURE</h3>
+                                <p>Precise engineering of structural elements, raw concrete joints, and custom amber supports.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <span class="service-num">04 //</span>
+                            <div class="service-info">
+                                <h3>SITE SUPERVISION</h3>
+                                <p>Ensuring absolute compliance with structural blueprints, materials, and execution grids.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STICKY ACTION FOOTER (Floats fixed at the bottom of the viewport) -->
+        <div class="sticky-footer">
             <!-- Capsule button on the bottom left (matches reference) -->
             <a href="#" class="action-btn" id="explore-btn">
                 <span class="btn-arrow">↗</span> Acessar o site
@@ -103,7 +195,7 @@
                     <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                 </svg>
             </button>
-        </footer>
+        </div>
     </main>
 
     <script src="script.js"></script>
