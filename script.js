@@ -31,27 +31,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Custom cinematic scroll parallax (Recreates the Siena Parallax / skiper29 effect)
-    const parallaxSection = document.querySelector('.parallax-section');
-    const parallaxBg = document.querySelector('.parallax-bg');
+    // Custom scroll zoom parallax for the bottom large image frame
+    const largeFrame = document.querySelector('.large-image-frame');
+    const largeImg = largeFrame ? largeFrame.querySelector('img') : null;
 
-    if (parallaxSection && parallaxBg) {
+    if (largeFrame && largeImg) {
+        // Prepare initial transform styles
+        largeImg.style.transition = 'transform 0.1s ease-out, filter 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        
         window.addEventListener('scroll', () => {
-            const rect = parallaxSection.getBoundingClientRect();
+            const rect = largeFrame.getBoundingClientRect();
             const viewHeight = window.innerHeight;
 
-            // Check if the parallax section is visible in the viewport
+            // Check if the large image frame is visible on the screen
             if (rect.top < viewHeight && rect.bottom > 0) {
                 // Calculate scroll progress (0 when entering bottom, 1 when exiting top)
                 const scrollProgress = (viewHeight - rect.top) / (viewHeight + rect.height);
                 
-                // Translate vertically (-60px to +60px) and scale up (1.0 to 1.12)
-                const translateY = (scrollProgress - 0.5) * -120;
-                const scale = 1.0 + (scrollProgress * 0.12);
+                // Scale from 1.0 to 1.08
+                const scale = 1.0 + (scrollProgress * 0.08);
                 
-                // Apply transformations
-                parallaxBg.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+                // Apply transformation
+                largeImg.style.transform = `scale(${scale})`;
             }
+        });
+    }
+
+    // Connect play circle visual click effect
+    const playCircle = document.querySelector('.play-btn-circle');
+    if (playCircle) {
+        playCircle.addEventListener('click', () => {
+            playCircle.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            setTimeout(() => {
+                playCircle.style.transform = '';
+                alert('Iniciando apresentação cinematográfica do projeto Ergo...');
+            }, 150);
         });
     }
 });

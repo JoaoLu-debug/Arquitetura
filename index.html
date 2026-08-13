@@ -12,7 +12,7 @@
 </head>
 <body>
     <main class="viewport-grid">
-        <!-- SECTION 1: HERO VIEW (100vh total) -->
+        <!-- SECTION 1: HERO VIEW (100vh total, stays exactly as requested) -->
         <div class="hero-view">
             <!-- TOP HALVES (50vh) -->
             <section class="top-section">
@@ -57,7 +57,7 @@
 
             <!-- BOTTOM HALVES (50vh) -->
             <section class="bottom-section">
-                <!-- Left Side: Geometric Logo (viewBox enlarged, aligned with sidebar) -->
+                <!-- Left Side: Geometric Logo (aligned with sidebar) -->
                 <div class="logo-container">
                     <svg class="block-logo" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
                         <!-- Row 2 (bottom): Square on Col 1 -->
@@ -87,91 +87,154 @@
             </section>
         </div>
 
-        <!-- SECTION 2: CINEMATIC PARALLAX VIEW (Replicates skiper29 effect using predio_2.jpg) -->
-        <section class="parallax-section">
-            <!-- Background Parallax Image -->
-            <div class="parallax-bg" style="background-image: url('assets/predio_2.jpg');"></div>
-            
-            <div class="parallax-overlay"></div>
-
-            <!-- Parallax Telemetry & Description Cards -->
-            <div class="parallax-content">
-                <!-- Left Overlay Card -->
-                <div class="telemetry-card pt-left">
-                    <div class="card-num">YP.02</div>
-                    <h3 class="card-title">CONCRETE GRID</h3>
-                    <p class="card-text">
-                        THE RAW EXPOSURE OF LOAD-BEARING ELEMENTS ENHANCES THE GEOMETRIC RATIONALISM OF THE FAÇADE.
-                    </p>
-                    <div class="card-telemetry">
-                        <div>LOCATION // PT.Oporto</div>
-                        <div>MATERIAL // Reinforced Concrete</div>
-                        <div>GRID SPACING // 4.80m</div>
+        <!-- SECTION 2: SCROLL NARRATIVE & ASYMMETRIC IMAGE ROW (Matches Reference 2 layout) -->
+        <section class="scroll-narrative-section">
+            <div class="scroll-wrapper">
+                <!-- Narrative Header Area -->
+                <div class="narrative-header-grid">
+                    <div class="narrative-spacer"></div>
+                    <div class="narrative-content">
+                        <h2>
+                            THIS IS THE ERGO HEADQUARTERS IN THE HEART OF OPORTO: ONE OF THE MOST AMBITIOUS URBAN ARCHITECTURAL INITIATIVES IN SOUTHERN EUROPE, METICULOUSLY ARCHITECTED TO INTEGRATE STRUCTURE AND LANDSCAPE.
+                        </h2>
+                        <p class="narrative-subtext">
+                            The building's structures balance structural gravity with a system of exposed load-bearing concrete cores. The Oporto studio is committed to designing spaces that foster collective interaction.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Right Overlay Card -->
-                <div class="telemetry-card pt-right">
-                    <div class="card-num">YP.03</div>
-                    <h3 class="card-title">GEOMETRIC PROPORTION</h3>
-                    <p class="card-text">
-                        THE COGNITIVE REDUCTION OF FORM TO PURE MATHEMATICAL SCALES IN CORPORATE ENVIRONMENTS.
-                    </p>
-                    <div class="card-telemetry">
-                        <div>COORDINATES // 41.1579° N, 8.6291° W</div>
-                        <div>ACCENTS // Ocre Amber Props</div>
+                <!-- Asymmetric 4-Image Grid Row -->
+                <div class="asymmetric-image-row">
+                    <!-- Image 1: Vertical crop -->
+                    <div class="row-img-box size-v1">
+                        <img src="assets/predio_um.jpg" alt="Detalhe de Estrutura 1">
+                    </div>
+                    <!-- Image 2: Vertical crop, taller -->
+                    <div class="row-img-box size-v2">
+                        <img src="assets/predio_2.jpg" alt="Detalhe de Estrutura 2">
+                    </div>
+                    <!-- Image 3: Landscape crop, has dark overlay badge -->
+                    <div class="row-img-box size-l1">
+                        <img src="assets/predio_3.jpg" alt="Detalhe de Estrutura 3">
+                        <!-- Dark overlay circular badge -->
+                        <div class="image-badge-overlay">
+                            <span>Ergo</span>
+                        </div>
+                    </div>
+                    <!-- Image 4: Regular landscape crop -->
+                    <div class="row-img-box size-l2">
+                        <img src="assets/predio_2.jpg" alt="Detalhe de Estrutura 4">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: SERVICES GRID VIEW (Bento architecture layout using predio_3.jpg) -->
-        <section class="services-section">
-            <div class="services-grid">
-                <!-- Col 1: Vertical Building Shot (24vw width to maintain the vertical grid line) -->
-                <div class="services-image-col">
-                    <img src="assets/predio_3.jpg" alt="Detalhe do Prédio 3">
-                </div>
-
-                <!-- Col 2: Services List & Studio Info (76vw width) -->
-                <div class="services-content-col">
-                    <div class="services-header">
-                        <span class="meta-label">YP.SERVICES</span>
-                        <h2>ARCHITECTURAL WORKFLOW</h2>
+        <!-- SECTION 3: SCROLL ASYMMETRIC METRICS GRID (Matches Reference 2 layout) -->
+        <section class="scroll-metrics-section">
+            <div class="scroll-wrapper">
+                <!-- Asymmetric 4-column, 2-row grid system -->
+                <div class="metrics-grid">
+                    <!-- Row 1, Col 1: Card 1 -->
+                    <div class="metric-card">
+                        <div class="card-tick top-left">+</div>
+                        <div class="card-tick top-right">+</div>
+                        <div class="card-tick bottom-left">+</div>
+                        <div class="card-tick bottom-right">+</div>
+                        <span class="metric-label">Total building surface</span>
+                        <div class="metric-value">12,500</div>
+                        <span class="metric-unit">sqm</span>
                     </div>
 
-                    <div class="services-list">
-                        <div class="service-item">
-                            <span class="service-num">01 //</span>
-                            <div class="service-info">
-                                <h3>STRUCTURAL ANALYSIS</h3>
-                                <p>Mathematical assessment of structures, using exposed grids to define visual syntax.</p>
-                            </div>
-                        </div>
+                    <!-- Row 1, Col 2: Empty cell -->
+                    <div class="metric-card-empty"></div>
 
-                        <div class="service-item">
-                            <span class="service-num">02 //</span>
-                            <div class="service-info">
-                                <h3>SPATIAL PROGRAMMING</h3>
-                                <p>Minimalist space optimization based on mid-century Swiss functional layout grids.</p>
-                            </div>
-                        </div>
+                    <!-- Row 1, Col 3: Card 2 -->
+                    <div class="metric-card">
+                        <div class="card-tick top-left">+</div>
+                        <div class="card-tick top-right">+</div>
+                        <div class="card-tick bottom-left">+</div>
+                        <div class="card-tick bottom-right">+</div>
+                        <span class="metric-label">Office and facilities</span>
+                        <div class="metric-value">8,200</div>
+                        <span class="metric-unit">sqm</span>
+                    </div>
 
-                        <div class="service-item">
-                            <span class="service-num">03 //</span>
-                            <div class="service-info">
-                                <h3>DETAIL ARCHITECTURE</h3>
-                                <p>Precise engineering of structural elements, raw concrete joints, and custom amber supports.</p>
-                            </div>
-                        </div>
+                    <!-- Row 1, Col 4: Card 3 -->
+                    <div class="metric-card">
+                        <div class="card-tick top-left">+</div>
+                        <div class="card-tick top-right">+</div>
+                        <div class="card-tick bottom-left">+</div>
+                        <div class="card-tick bottom-right">+</div>
+                        <span class="metric-label">Exhibition spaces</span>
+                        <div class="metric-value">4,300</div>
+                        <span class="metric-unit">sqm</span>
+                    </div>
 
-                        <div class="service-item">
-                            <span class="service-num">04 //</span>
-                            <div class="service-info">
-                                <h3>SITE SUPERVISION</h3>
-                                <p>Ensuring absolute compliance with structural blueprints, materials, and execution grids.</p>
-                            </div>
-                        </div>
+                    <!-- Row 2, Col 1: Empty cell -->
+                    <div class="metric-card-empty"></div>
+
+                    <!-- Row 2, Col 2: Card 4 -->
+                    <div class="metric-card">
+                        <div class="card-tick top-left">+</div>
+                        <div class="card-tick top-right">+</div>
+                        <div class="card-tick bottom-left">+</div>
+                        <div class="card-tick bottom-right">+</div>
+                        <span class="metric-label">Public green space</span>
+                        <div class="metric-value">3,100</div>
+                        <span class="metric-unit">sqm</span>
+                    </div>
+
+                    <!-- Row 2, Col 3: Card 5 -->
+                    <div class="metric-card">
+                        <div class="card-tick top-left">+</div>
+                        <div class="card-tick top-right">+</div>
+                        <div class="card-tick bottom-left">+</div>
+                        <div class="card-tick bottom-right">+</div>
+                        <span class="metric-label">Building volume</span>
+                        <div class="metric-value">68,000</div>
+                        <span class="metric-unit">cub.m</span>
+                    </div>
+
+                    <!-- Row 2, Col 4: Card 6 -->
+                    <div class="metric-card">
+                        <div class="card-tick top-left">+</div>
+                        <div class="card-tick top-right">+</div>
+                        <div class="card-tick bottom-left">+</div>
+                        <div class="card-tick bottom-right">+</div>
+                        <span class="metric-label">Project duration</span>
+                        <div class="metric-value">4</div>
+                        <span class="metric-unit">years of building</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SECOND NARRATIVE & LARGE PHOTO (Matches Reference 2 layout) -->
+        <section class="scroll-bottom-section">
+            <div class="scroll-wrapper">
+                <!-- Secondary Narrative Header -->
+                <div class="narrative-header-grid">
+                    <div class="narrative-spacer"></div>
+                    <div class="narrative-content">
+                        <h2>
+                            CREATING A WORK ENVIRONMENT THAT IS SOCIALLY, PHYSICALLY AND FUNCTIONALLY RIGID WAS ALSO A KEY AIM OF THE DESIGN FROM THE OUTSET.
+                        </h2>
+                        <p class="narrative-subtext">
+                            The spatial syntax emphasizes clean, uncompromised structural connections, raw textures, and open-plan configurations that foster creative workflow.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Large Horizontal Landscape Photo with Play Button Overlay -->
+                <div class="large-image-frame">
+                    <img src="assets/predio_um.jpg" alt="Interior da Estrutura Ergo">
+                    
+                    <!-- Circular Play Button Overlay -->
+                    <div class="play-btn-circle">
+                        <!-- Play arrow SVG icon -->
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <polygon points="6,4 20,12 6,20" />
+                        </svg>
                     </div>
                 </div>
             </div>

@@ -105,6 +105,13 @@ html, body {
     gap: 4px;
 }
 
+.meta-label {
+    font-size: 0.72rem;
+    color: var(--color-medium-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
 /* Gallery Container (Occupies 76% width) */
 .gallery-container {
     width: 76%;
@@ -245,133 +252,69 @@ html, body {
 }
 
 /* ==========================================================================
-   SECTION 2: CINEMATIC PARALLAX VIEW
+   SCROLL WRAPPER (Global column width constraint)
    ========================================================================== */
 
-.parallax-section {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    border-top: 1px solid var(--color-charcoal);
-    border-bottom: 1px solid var(--color-charcoal);
-}
-
-/* Parallax image scales and shifts on scroll via script.js */
-.parallax-bg {
-    position: absolute;
-    top: -10%; /* Extra height handles translation spacing */
-    left: 0;
+.scroll-wrapper {
     width: 100%;
-    height: 120%;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%) brightness(40%);
-    z-index: 1;
-    transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.1s ease-out;
-}
-
-.parallax-section:hover .parallax-bg {
-    filter: grayscale(0%) brightness(50%);
-}
-
-.parallax-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
-    z-index: 2;
-}
-
-.parallax-content {
-    position: relative;
-    z-index: 5;
-    height: 100%;
-    padding: 60px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Industrial brutalist telemetry overlays */
-.telemetry-card {
-    background-color: rgba(0, 0, 0, 0.85);
-    border: 1px solid var(--color-charcoal);
-    padding: 30px;
-    width: 38%;
-    max-width: 450px;
-}
-
-.telemetry-card .card-num {
-    color: var(--color-ocre);
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.telemetry-card .card-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-}
-
-.telemetry-card .card-text {
-    font-size: 0.82rem;
-    line-height: 1.4;
-    color: var(--color-light-gray);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.telemetry-card .card-telemetry {
-    font-size: 0.7rem;
-    color: var(--color-medium-gray);
-    border-top: 1px solid var(--color-charcoal);
-    padding-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    text-transform: uppercase;
-}
-
-.pt-left {
-    align-self: flex-start;
-    margin-top: 40px;
-}
-
-.pt-right {
-    align-self: flex-end;
-    margin-bottom: 80px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 /* ==========================================================================
-   SECTION 3: SERVICES GRID VIEW
+   SECTION 2: SCROLL NARRATIVE & ASYMMETRIC IMAGES
    ========================================================================== */
 
-.services-section {
-    height: 100vh;
+.scroll-narrative-section {
     background-color: var(--color-almost-white);
     color: var(--color-black);
-    overflow: hidden;
+    padding: 80px 0;
+    border-top: 1px solid var(--color-light-gray);
 }
 
-.services-grid {
-    height: 100%;
+/* Narrative Grid aligning with Section 1 vertical divider */
+.narrative-header-grid {
     display: grid;
-    grid-template-columns: 24% 76%; /* Grid matches the 24vw vertical divider */
+    grid-template-columns: 24% 76%;
+    margin-bottom: 60px;
 }
 
-.services-image-col {
-    height: 100%;
-    border-right: 1px solid var(--color-light-gray);
+.narrative-content h2 {
+    font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+
+.narrative-subtext {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    max-width: 70%;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Asymmetric 4-Image Grid Row */
+.asymmetric-image-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.row-img-box {
+    position: relative;
     overflow: hidden;
+    background-color: #1a1a1a;
 }
 
-.services-image-col img {
+.row-img-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -379,62 +322,181 @@ html, body {
     transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.services-grid:hover .services-image-col img {
+.row-img-box:hover img {
     filter: grayscale(0%);
+    transform: scale(1.02);
 }
 
-.services-content-col {
-    padding: 60px 40px;
+/* Image box size configurations mirroring reference spacing */
+.size-v1 {
+    width: 22%;
+    height: 260px;
+}
+
+.size-v2 {
+    width: 22%;
+    height: 340px;
+}
+
+.size-l1 {
+    width: 32%;
+    height: 220px;
+}
+
+.size-l2 {
+    width: 24%;
+    height: 220px;
+}
+
+/* Round overlay badge over the landscape thumbnail */
+.image-badge-overlay {
+    position: absolute;
+    top: 40%;
+    right: 20%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-black);
+    color: var(--color-almost-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   SECTION 3: SCROLL ASYMMETRIC METRICS GRID
+   ========================================================================== */
+
+.scroll-metrics-section {
+    background-color: var(--color-almost-white);
+    color: var(--color-black);
+    padding: 40px 0 80px 0;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.metric-card {
+    position: relative;
+    border: 1px solid var(--color-light-gray);
+    background-color: var(--color-almost-white);
+    padding: 30px 20px;
+    min-height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
 }
 
-.services-header h2 {
+.metric-card-empty {
+    min-height: 180px;
+}
+
+/* Swiss ticks (+) at card corners */
+.card-tick {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-medium-gray);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.card-tick.top-left { top: 4px; left: 6px; }
+.card-tick.top-right { top: 4px; right: 6px; }
+.card-tick.bottom-left { bottom: 4px; left: 6px; }
+.card-tick.bottom-right { bottom: 4px; right: 6px; }
+
+.metric-label {
+    font-size: 0.72rem;
+    color: var(--color-charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+.metric-value {
     font-size: clamp(2rem, 3.5vw, 3.5rem);
     font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: -0.05em;
     line-height: 1;
-    letter-spacing: -0.04em;
-    margin-top: 10px;
+    margin: 15px 0 5px 0;
+}
+
+.metric-unit {
+    font-size: 0.72rem;
+    color: var(--color-medium-gray);
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   SECTION 4: SECOND NARRATIVE & LARGE PHOTO
+   ========================================================================== */
+
+.scroll-bottom-section {
+    background-color: var(--color-almost-white);
     color: var(--color-black);
-}
-
-.services-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 60px;
-    margin-top: 40px;
-    margin-bottom: 60px;
-}
-
-.service-item {
-    display: flex;
-    gap: 15px;
+    padding: 80px 0 120px 0;
     border-top: 1px solid var(--color-light-gray);
-    padding-top: 20px;
 }
 
-.service-num {
-    font-size: 0.85rem;
-    color: var(--color-ocre);
-    font-weight: 700;
+.large-image-frame {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    margin-top: 40px;
+    background-color: #1a1a1a;
 }
 
-.service-info h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 8px;
+.large-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.large-image-frame:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.01);
+}
+
+/* Centered circular play button overlay */
+.play-btn-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
     color: var(--color-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s, color 0.2s;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.service-info p {
-    font-size: 0.82rem;
-    color: var(--color-charcoal);
-    line-height: 1.4;
-    text-transform: uppercase;
+.play-btn-circle:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: var(--color-almost-white);
+    color: var(--color-ocre);
 }
 
 /* ==========================================================================
@@ -503,49 +565,50 @@ html, body {
     .description-wrapper {
         max-width: 100%;
     }
-    
-    .parallax-section {
-        height: auto;
-        min-height: 100vh;
+
+    .scroll-wrapper {
+        padding: 0 20px;
     }
 
-    .parallax-content {
-        flex-direction: column;
-        gap: 40px;
-        padding: 60px 24px;
+    .narrative-header-grid {
+        grid-template-columns: 100%;
+        margin-bottom: 30px;
     }
 
-    .telemetry-card {
-        width: 100%;
+    .narrative-spacer {
+        display: none;
+    }
+
+    .narrative-subtext {
         max-width: 100%;
     }
 
-    .pt-left, .pt-right {
-        align-self: stretch;
-        margin: 0;
+    .asymmetric-image-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
     }
 
-    .services-section {
-        height: auto;
+    .size-v1, .size-v2, .size-l1, .size-l2 {
+        width: 100%;
+        height: 240px;
     }
 
-    .services-grid {
+    .metrics-grid {
         grid-template-columns: 100%;
+        gap: 15px;
     }
 
-    .services-image-col {
-        height: 40vh;
-        border-right: none;
-        border-bottom: 1px solid var(--color-light-gray);
+    .metric-card-empty {
+        display: none;
     }
 
-    .services-content-col {
-        padding: 40px 24px;
+    .metric-card {
+        min-height: auto;
+        padding: 24px 20px;
     }
 
-    .services-list {
-        grid-template-columns: 100%;
-        gap: 30px;
-        margin-bottom: 40px;
+    .large-image-frame {
+        height: 280px;
     }
 }
